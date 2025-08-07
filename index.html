@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shashank Adgaonker - Corporate Trainer & Technology Expert</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.5" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+        
+        .profile-section {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .name {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .title {
+            font-size: 1.7em;
+            font-weight: 35	0;
+            margin-bottom: 20px;
+            color: #ecf0f1;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95em;
+        }
+        
+        .contact-item i {
+            font-size: 1.2em;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            padding: 40px;
+        }
+        
+        .sidebar {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            height: fit-content;
+        }
+        
+        .content {
+            padding-left: 20px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 30%;
+            height: 3px;
+            background: #e74c3c;
+        }
+        
+        .experience-highlight {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .experience-years {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .experience-text {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .skills-grid {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .skill-category {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .skill-category h4 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skill-tag {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+        
+        .education-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .company-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #dee2e6;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .company-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .company-name {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .company-location {
+            font-size: 0.85em;
+            color: #7f8c8d;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .project-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #27ae60;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .project-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+        
+        .achievements-list {
+            list-style: none;
+        }
+        
+        .achievements-list li {
+            background: white;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #f39c12;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .achievements-list li::before {
+            content: '✓';
+            position: absolute;
+            left: -15px;
+            top: 15px;
+            background: #27ae60;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+        
+        .linkedin-link {
+            display: inline-block;
+            background: #0077b5;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 119, 181, 0.3);
+        }
+        
+        .linkedin-link:hover {
+            background: #005582;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 119, 181, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+            
+            .content {
+                padding-left: 0;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .name {
+                font-size: 2em;
+            }
+            
+            .companies-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="header">
+            <div class="profile-section">
+                <h1 class="name">ADGAONKER SHASHANK</h1>
+                <p class="title">Senior Corporate Trainer & Technology Expert</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📱</span> +91 7893515868
+                    </div>
+                    <div class="contact-item">
+                        <span>📧</span> androidjavashashank@gmail.com
+                    </div>
+                    <div class="contact-item">
+                        <span>💼</span> LinkedIn Profile Available
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="section">
+                    <div class="experience-highlight">
+                        <div class="experience-years">15+</div>
+                        <div class="experience-text">Years of Excellence in Corporate Training & Technology Education</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">Core Expertise</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Programming & Development</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Python Full Stack</span>
+                                <span class="skill-tag">MERN Stack</span>
+                                <span class="skill-tag">Java</span>
+                                <span class="skill-tag">Android</span>
+                                <span class="skill-tag">DSA</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>AI & Machine Learning</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Data Science</span>
+                                <span class="skill-tag">Machine Learning</span>
+                                <span class="skill-tag">Deep Learning</span>
+                                <span class="skill-tag">Gen AI</span>
+                                <span class="skill-tag">Agentic AI</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Analytics & Business Intelligence</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Power BI</span>
+                                <span class="skill-tag">Data Analytics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">Education</h2>
+                    <div class="education-item">
+                        <h3>Master of Technology</h3>
+                        <p><strong>Computer Science & Engineering</strong></p>
+                        <p>J.N.T.U, Hyderabad</p>
+                        <br>
+                        <h3>Bachelor of Technology</h3>
+                        <p><strong>Computer Science & Engineering</strong></p>
+                        <p>J.N.T.U, Hyderabad</p>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <a href="https://in.linkedin.com/in/androidshashank" class="linkedin-link" target="_blank">
+                        🔗 Connect on LinkedIn
+                    </a>
+                </div>
+            </div>
+            
+            <div class="content">
+                <div class="section">
+                    <h2 class="section-title">Professional Summary</h2>
+                    <p>Dynamic and results-driven Corporate Trainer with 15+ years of comprehensive experience in technology education, team leadership, and curriculum development. Proven track record of successfully training professionals across Fortune 500 companies and prestigious educational institutions globally. Expertise spans cutting-edge technologies including AI/ML, Full-Stack Development, and Data Science, with exceptional ability to transform complex technical concepts into engaging, practical learning experiences.</p>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">Key Achievements</h2>
+                    <ul class="achievements-list">
+                        <li>Successfully trained over 10,000+ professionals across national and international organizations</li>
+                        <li>Delivered corporate training programs for industry giants including Verizon, Capgemini, Accenture, and HCL Technologies</li>
+                        <li>Conducted specialized training sessions at premier institutions including IITs and NITs</li>
+                        <li>Expanded training operations internationally with successful programs in Oman</li>
+                        <li>Developed comprehensive curricula for emerging technologies including Gen AI and Agentic AI</li>
+                        <li>Maintained 95%+ participant satisfaction rates across all training programs</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">Corporate Training Experience</h2>
+                    <h3 style="color: #2c3e50; margin-bottom: 15px;">National Corporations</h3>
+                    <div class="companies-grid">
+                        <div class="company-card">
+                            <div class="company-name">VERIZON</div>
+                            <div class="company-location">Corporate Training</div>
+                        </div>
+                        <div class="company-card">
+                            <div class="company-name">CAPGEMINI</div>
+                            <div class="company-location">Bangalore</div>
+                        </div>
+                        <div class="company-card">
+                            <div class="company-name">ACCENTURE</div>
+                            <div class="company-location">Bangalore</div>
+                        </div>
+                        <div class="company-card">
+                            <div class="company-name">HCL TECHNOLOGIES</div>
+                            <div class="company-location">Multiple Locations</div>
+                        </div>
+                        <div class="company-card">
+                            <div class="company-name">FSS</div>
+                            <div class="company-location">Thane</div>
+                        </div>
+                        <div class="company-card">
+                            <div class="company-name">CGI</div>
+                            <div class="company-location">Hyderabad</div>
+                        </div>
+                        <div class="company-card">
+                            <div class="company-name">GAINSIGHT</div>
+                            <div class="company-location">Hyderabad</div>
+                        </div>
+                        <div class="company-card">
+                            <div class="company-name">MOURITECH</div>
+                            <div class="company-location">Hyderabad</div>
+                        </div>
+                    </div>
+                    
+                    <h3 style="color: #2c3e50; margin: 25px 0 15px 0;">International Experience</h3>
+                    <div class="company-card" style="max-width: 300px;">
+                        <div class="company-name">ANDROID TRAINING UNIT</div>
+                        <div class="company-location">Muscat, Oman</div>
+                    </div>
+                    
+                    <h3 style="color: #2c3e50; margin: 25px 0 15px 0;">Premier Educational Institutions</h3>
+                    <div class="companies-grid">
+                        <div class="company-card">
+                            <div class="company-name">IIT</div>
+                            <div class="company-location">Hyderabad, Mumbai, Kharagpur</div>
+                        </div>
+                        <div class="company-card">
+                            <div class="company-name">NIT</div>
+                            <div class="company-location">Warangal, Trichy, Suratkal</div>
+                        </div>
+                        <div class="company-card">
+                            <div class="company-name">GITAM UNIVERSITY</div>
+                            <div class="company-location">Multi-Campus</div>
+                        </div>
+                        <div class="company-card">
+                            <div class="company-name">ANNA UNIVERSITY</div>
+                            <div class="company-location">Chennai</div>
+                        </div>
+                        <div class="company-card">
+                            <div class="company-name">VIT</div>
+                            <div class="company-location">Chennai</div>
+                        </div>
+                        <div class="company-card">
+                            <div class="company-name">SRM UNIVERSITY</div>
+                            <div class="company-location">Chennai, Vijayawada</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">Notable Projects</h2>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-title">Immotoplu Real Estate App</div>
+                            <p>Full-stack mobile application for real estate management</p>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-title">AI-Powered Cancer Detection</div>
+                            <p>Machine learning solution for medical diagnostics</p>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-title">Medicinal Leaf Classification</div>
+                            <p>Deep learning model for botanical identification</p>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-title">Stock Market Predictor</div>
+                            <p>ML-based financial forecasting system</p>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-title">Personal ChatBot</div>
+                            <p>Custom conversational AI implementation</p>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-title">Student Placement Portal</div>
+                            <p>Predictive analytics for career placement</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
